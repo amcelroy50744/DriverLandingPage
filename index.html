@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Command Center</title>
+    <style>
+        /* CSS INCLUDED IN HTML FOR EASIER MANAGEMENT */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #333;
+        }
+
+        header h1 { margin: 0; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px; }
+        .date { font-size: 0.9rem; opacity: 0.9; margin-top: 5px; }
+
+        main { padding: 15px; }
+
+        .card {
+            background-color: #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid #d32f2f;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        /* Smartsheet Button Section */
+        .action-card {
+            text-align: center;
+            border-left: 5px solid #888;
+        }
+
+        .btn-link {
+            display: block;
+            background-color: #d32f2f;
+            color: white;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        .btn-link:active {
+            background-color: #b71c1c;
+            transform: scale(0.98);
+        }
+
+        /* Metrics Grid */
+        .metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 15px 10px;
+        }
+
+        .metric-card h3 { font-size: 0.75rem; margin: 0; color: #bbb; text-transform: uppercase; }
+        .stat { font-size: 1.8rem; font-weight: bold; margin: 8px 0; color: #fff; }
+        .goal { font-size: 0.7rem; color: #d32f2f; font-weight: bold; margin: 0; }
+
+        /* Typography */
+        h2 { font-size: 1.1rem; margin-top: 0; color: #d32f2f; text-transform: uppercase; }
+        ul { padding-left: 20px; margin: 0; }
+        li { margin-bottom: 10px; font-size: 0.9rem; border-bottom: 1px solid #444; padding-bottom: 5px; }
+        li:last-child { border-bottom: none; }
+        .safety-text { font-style: italic; color: #eee; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Driver Command Center</h1>
+        <div class="date" id="current-date"></div>
+    </header>
+
+    <main>
+        <section class="card action-card">
+            <h2>Required Forms</h2>
+            <a href="https://app.smartsheet.com/b/form/f10eee7610c347f5bd076bdf74858b39" class="btn-link" target="_blank">
+                Start Pre/Post Trip Inspection
+            </a>
+        </section>
+
+        <section class="metrics">
+            <div class="card metric-card">
+                <h3>Current OTA</h3>
+                <div class="stat">98.2%</div>
+                <p class="goal">Goal: 99.5%</p>
+            </div>
+            <div class="card metric-card">
+                <h3>Avg ERS Score</h3>
+                <div class="stat">14.2</div>
+                <p class="goal">Goal: 15.0</p>
+            </div>
+        </section>
+
+        <section class="card safety-card">
+            <h2>Daily Safety Message</h2>
+            <p class="safety-text">"Maintain a 4-second following distance and stay alert at intersections. Safety is the priority."</p>
+        </section>
+
+        <section class="card alert-card">
+            <h2>Load Updates & Cancels</h2>
+            <ul>
+                <li><strong>April 23:</strong> Load #88492 - Cancelled</li>
+                <li><strong>April 24:</strong> Load #91032 - Re-routed</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        // Automatically updates the date header
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString(undefined, options);
+    </script>
+
+</body>
+</html>
